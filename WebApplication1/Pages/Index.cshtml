@@ -1,10 +1,27 @@
-﻿@page
-@model IndexModel
-@{
-    ViewData["Title"] = "Home page";
+﻿@{
+    ViewData["Title"] = "Inicio";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="todo-container">
+    <div class="form-section">
+        <h2>Agregar tarea</h2>
+        <input type="text" id="taskTitle" placeholder="Título" />
+        <textarea id="taskDescription" placeholder="Descripción"></textarea>
+        <input type="date" id="taskDueDate" />
+        <button onclick="addTask()">Agregar</button>
+    </div>
+
+    <div class="filter-section">
+        <label for="filter">Filtrar:</label>
+        <select id="filter" onchange="filterTasks()">
+            <option value="all">Todas</option>
+            <option value="pending">Pendientes</option>
+            <option value="completed">Completadas</option>
+        </select>
+    </div>
+
+    <div class="list-section">
+        <h2>Lista de tareas</h2>
+        <ul id="taskList"></ul>
+    </div>
 </div>
